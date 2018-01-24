@@ -12,8 +12,8 @@ main = do
   putStr $ concat [ list ++ " -> " ++ avg ++ "\n"
                   | list <- args
                   | avg  <- averages]
-   where
-     averageRainfall = maybe "No Result" show
-                     . average
-                     . filter (>= 0)
-                     . takeWhile (/= (-999))
+  where
+    averageRainfall = maybe "No Result" show
+                    . average
+                    . filter (>= 0)
+                    . takeWhile (/= (-999))
