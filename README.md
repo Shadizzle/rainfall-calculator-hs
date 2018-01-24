@@ -20,7 +20,7 @@ You will need to install [GHC](https://www.haskell.org/ghc) to compile from sour
 
 ## Usage
 
-To compile source, run the following from the project root (you made need to add a `-dynamic` flag on a system where GHC is packaged with dynamic linking):
+To compile source, run the following from the project root (you made need to add a `-dynamic` flag if on a system where GHC is packaged with dynamic linking):
 ```
 ghc -o rainfall rainfall.hs
 ```
