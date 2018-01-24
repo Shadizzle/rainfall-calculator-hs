@@ -1,7 +1,6 @@
 {-# LANGUAGE ParallelListComp #-}
 
 import System.Environment (getArgs)
-import Data.Maybe (fromMaybe)
 
 average :: (Fractional a) => [a] -> Maybe a
 average [] = Nothing
