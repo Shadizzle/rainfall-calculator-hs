@@ -16,16 +16,16 @@ For example:
 
 ## Requirements
 
-You will need to install [GHC](https://www.haskell.org/ghc) to compile from source, but comes with a `rainfall-arch` file precompiled on Arch Linux.
+You will need to install [GHC](https://www.haskell.org/ghc) to compile from source, but this repo comes with a `rainfall-arch` file that has been precompiled on Arch Linux.
 
 ## Usage
 
-To compile source, run the following from the project root (you made need to add a `-dynamic` flag if on a system where GHC is packaged with dynamic linking):
+To compile from source, run the following from the project root (you may need to add a `-dynamic` flag if on a system where GHC is packaged with dynamic linking):
 ```
 ghc -o rainfall rainfall.hs
 ```
 
-Run all of the examples provided in the task description like so:
+Run all of the examples provided in the task description like so (swap `rainfall` for `rainfall-arch` if using the precompiled version):
 ```
 ./rainfall "[1,1,1,1,1,1,1,1,1,(-999)]" "[1,2,3,4,5,(-999)]" "[1,(-1),(-999)]" "[(-999)]" "[1,(-1),9,0,10,99,(-999),0,1]"
 ```
