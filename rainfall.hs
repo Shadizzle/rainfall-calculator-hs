@@ -2,18 +2,23 @@
 
 import System.Environment (getArgs)
 
-average :: (Fractional a) => [a] -> Maybe a
-average [] = Nothing
-average xs = Just $ sum xs / fromIntegral (length xs)
+select :: (a -> Bool) -> (a -> b) -> (a -> b) -> a -> b
+select p t f x = if p x then t x else f x
+
+average :: (Fractional a) => [a] -> a
+average xs = sum xs / fromIntegral (length xs)
 
 main = do
   args <- getArgs
-  averages <- return $ map (averageRainfall . read) args
-  putStr $ concat [ list ++ " -> " ++ avg ++ "\n"
+  rain <- return $ map (normalize . read) args
+  putStr $ concat [ list ++ " -> " ++ "Avg: " ++ avg ++ ", "
+                                   ++ "Max: " ++ max ++ ", "
+                                   ++ "Min: " ++ min ++ "\n"
                   | list <- args
-                  | avg  <- averages]
+                  | avg  <- map (maybe "N/A" (show . average)) rain
+                  | max  <- map (maybe "N/A" (show . maximum)) rain
+                  | min  <- map (maybe "N/A" (show . minimum)) rain]
   where
-    averageRainfall = maybe "No Result" show
-                    . average
-                    . filter (>= 0)
-                    . takeWhile (/= (-999))
+    normalize = select null (const Nothing) Just
+              . filter (>= 0)
+              . takeWhile (/= (-999))
