@@ -16,7 +16,7 @@ For example:
 
 ## Requirements
 
-You will need to install [GHC](https://www.haskell.org/ghc) to compile from source, but the rainfall file is precompiled for Arch Linux.
+You will need to install [GHC](https://www.haskell.org/ghc) to compile from source, but comes with a `rainfall-arch` file precompiled on Arch Linux.
 
 ## Usage
 
